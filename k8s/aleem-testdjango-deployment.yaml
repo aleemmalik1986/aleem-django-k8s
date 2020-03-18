@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aleem-testdjango-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: aleem-testdjango-deployment-web
+  template:
+    metadata:
+      labels:
+        component: aleem-testdjango-deployment-web
+    spec:
+      containers:
+        - name: tesdjango-web-container
+          image: aleemtmalik/testdjango:v5
+          ports:
+            - containerPort: 8004
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: redhat
+            - name: MYSQL_DATABASE
+              value: frontend_db
+            - name: MYSQL_PASSWORD
+              value: frontend_dbpass
+            - name: MYSQL_USER
+              value: frontend_db_user
+            - name: MYSQL_HOST
+              value: aleem-testdjango-mysql-cluster-ip-service
+            - name: MYSQL_PORT
+              value: '3306'
