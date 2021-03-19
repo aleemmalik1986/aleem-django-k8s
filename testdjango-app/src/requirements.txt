@@ -2,7 +2,7 @@ asgiref==3.2.3
 coverage==4.5.4
 Django==2.2.0
 django-jenkins==0.110.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 mysqlclient
 jslint==0.6.0
 pep8==1.7.1
